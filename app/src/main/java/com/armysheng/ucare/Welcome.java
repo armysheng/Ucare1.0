@@ -1,39 +1,60 @@
 package com.armysheng.ucare;
 
-import android.support.v7.app.ActionBarActivity;
+import com.armysheng.ucare.guide.GuideActivity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 
-public class Welcome extends ActionBarActivity {
+public class Welcome extends Activity implements Runnable {
 
-    @Override
+    //判断是否是第一次用
+    private boolean isFirstUse;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        /**
+         * 新建现场
+         */
+        new Thread(this).start();
     }
 
+    public void run() {
+        try {
+            /**
+             * 欢迎页面停留2000ms
+             */
+            Thread.sleep(2000);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_welcome, menu);
-        return true;
-    }
+            //第一次使用后更新SharedPreferences
+            SharedPreferences preferences = getSharedPreferences("isFirstUse",MODE_WORLD_READABLE);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+            isFirstUse = preferences.getBoolean("isFirstUse", true);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            /**
+             *判断是否是第一次启动
+             */
+            if (isFirstUse) {
+                startActivity(new Intent(Welcome.this, GuideActivity.class));
+            } else {
+                startActivity(new Intent(Welcome.this, Login_Activity.class));
+            }
+            finish();
+
+            //创建Editor来编辑preferences
+            Editor editor = preferences.edit();
+            //update editor
+            editor.putBoolean("isFirstUse", false);
+            //
+            editor.commit();
+
+
+        } catch (InterruptedException e) {
+
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
