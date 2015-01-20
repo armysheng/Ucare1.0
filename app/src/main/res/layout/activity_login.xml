@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dog"
+    android:gravity="bottom"
+    android:orientation="vertical" >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="3">
+</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:color = "#000000"
+        android:orientation="horizontal"
+        android:background="@drawable/corner_round" >
+        <!--用户名栏目-->
+        <LinearLayout
+            android:id="@+id/layout_username"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dip"
+            android:paddingRight="30dip"
+            android:paddingTop="0dip"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/username_tv"
+                android:text="@string/account"
+                android:textSize="@dimen/abc_text_size_body_1_material"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true" />
+
+            <EditText
+                android:id="@+id/username_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="phone"
+                >
+            </EditText>
+        </LinearLayout>
+        <!--密码栏-->
+        <LinearLayout
+            android:layout_below="@id/layout_username"
+            android:id="@+id/layout_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dip"
+            android:paddingRight="30dip"
+            android:paddingTop="0dip"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_alignLeft="@id/username_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textSize="@dimen/abc_text_size_body_1_material"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"/>
+            <EditText
+                android:id="@+id/password_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPassword"
+                >
+            </EditText>
+        </LinearLayout>
+
+        <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="1dip"-->
+            <!--android:layout_below="@id/layout_top"-->
+            <!--android:background="#FFFFFF" />-->
+
+        <Button
+            android:id="@+id/btn_weibo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/login_btn"
+            android:background="@drawable/btn_weibo"
+            android:paddingLeft="100dip" />
+
+        <Button
+            android:id="@+id/btn_qq"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/btn_qq"
+            android:paddingLeft="100dip" />
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_pagedown_x"
+            android:paddingLeft="100dip" />
+
+    </RelativeLayout>
+
+</LinearLayout>
