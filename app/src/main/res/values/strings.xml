@@ -8,5 +8,6 @@
     <string name="account">账号：</string>
     <string name="password">密码：</string>
     <string name="title_activity_welcome">Welcome</string>
+    <string name="title_activity_home_page">HomePage</string>
 
 </resources>
