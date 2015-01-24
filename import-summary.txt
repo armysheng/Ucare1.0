@@ -15,9 +15,9 @@ Moved Files:
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => library\src\main\AndroidManifest.xml
-* res\ => library\src\main\res\
-* src\ => library\src\main\java\
+* AndroidManifest.xml => pullToRefreshListView\src\main\AndroidManifest.xml
+* res\ => pullToRefreshListView\src\main\res\
+* src\ => pullToRefreshListView\src\main\java\
 
 Next Steps:
 -----------
