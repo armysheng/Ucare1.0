@@ -33,6 +33,7 @@
                 android:id="@+id/username_tv"
                 android:text="@string/account"
                 android:textSize="@dimen/abc_text_size_body_1_material"
+                android:singleLine="true"
                  />
 
             <EditText
