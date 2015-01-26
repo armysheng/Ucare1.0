@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Ucare.iml" filepath="$PROJECT_DIR$/Ucare.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/universal-image-loader-1.9.3-with-sources/libraries-universal-image-loader-1.9.3-with-sources.iml" filepath="$PROJECT_DIR$/libraries/universal-image-loader-1.9.3-with-sources/libraries-universal-image-loader-1.9.3-with-sources.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/pullToRefreshListView/pullToRefreshListView.iml" filepath="$PROJECT_DIR$/libraries/pullToRefreshListView/pullToRefreshListView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/universal-image-loader-1.9.3-with-sources/universal-image-loader-1.9.3-with-sources.iml" filepath="$PROJECT_DIR$/universal-image-loader-1.9.3-with-sources/universal-image-loader-1.9.3-with-sources.iml" />
     </modules>
   </component>
 </project>
