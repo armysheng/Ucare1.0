@@ -68,9 +68,9 @@ public class HomePage extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.ic_stub)
-                .showImageForEmptyUri(R.drawable.ic_empty)
-                .showImageOnFail(R.drawable.ic_error)
+//                .showImageOnLoading(R.drawable.ic_stub)
+//                .showImageForEmptyUri(R.drawable.ic_empty)
+//                .showImageOnFail(R.drawable.ic_error)
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .considerExifParams(true)
