@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':universal-image-loader-1.9.3-with-sources'
 include ':libraries:pullToRefreshListView'
