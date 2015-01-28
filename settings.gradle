@@ -1,2 +1,3 @@
-include ':app', ':universal-image-loader-1.9.3-with-sources'
+include ':app', ':universal-image-loader-1.9.3-with-sources', ':pullToRefreshListView'
 include ':libraries:pullToRefreshListView'
+project(':pullToRefreshListView').projectDir = new File('libraries/pullToRefreshListView')

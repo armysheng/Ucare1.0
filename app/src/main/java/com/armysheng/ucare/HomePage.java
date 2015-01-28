@@ -36,6 +36,8 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.nostra13.universalimageloader.utils.L;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.ListActivity;
@@ -52,7 +54,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class HomePage extends ListActivity {
+public class HomePage extends Activity {
 
     private static final String TEST_FILE_NAME = "Ucare" ;
     private ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
@@ -68,14 +70,17 @@ public class HomePage extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         options = new DisplayImageOptions.Builder()
-//                .showImageOnLoading(R.drawable.ic_stub)
-//                .showImageForEmptyUri(R.drawable.ic_empty)
-//                .showImageOnFail(R.drawable.ic_error)
+                .showImageOnLoading(R.drawable.ic_stub)
+                .showImageForEmptyUri(R.drawable.ic_empty)
+                .showImageOnFail(R.drawable.ic_error)
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
-                .considerExifParams(true)
-                .displayer(new RoundedBitmapDisplayer(20))
+//                .considerExifParams(true)
+//                .displayer(new RoundedBitmapDisplayer(20))
                 .build();
+//        ActionBar actionBar = getActionBar();
+//        actionBar.hide();
+//        setTitle("视频广场");
 
         imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 
@@ -97,8 +102,7 @@ public class HomePage extends ListActivity {
             }
         });
 
-        mPullRefreshListView.setMode(Mode.PULL_FROM_END);//设置底部下拉刷新模式  
-
+        mPullRefreshListView.setMode(Mode.PULL_FROM_START);//设置顶部下拉
         listItem=getData();//获取LIST数据  
         adapter = new MyAdapter(this);
 
@@ -125,8 +129,8 @@ public class HomePage extends ListActivity {
                 map.put("name", "林珊");
                 map.put("info", "上传了一张新照片油画");
                 map.put("img","assets://7.png");
-                newArrayList.add(map);
-                newArrayList.add(map);
+                newArrayList.add(0,map);
+                newArrayList.add(0,map);
 
             } catch (Exception e) {
                 // TODO: handle exception  adbe
@@ -144,7 +148,7 @@ public class HomePage extends ListActivity {
             //在头部增加新添内容  
 
             try {
-                listItem.addAll(result);
+                listItem.addAll(0,result);
 
                 //通知程序数据集已经改变，如果不做通知，那么将不会刷新mListItems的集合  
                 adapter.notifyDataSetChanged();
@@ -237,38 +241,18 @@ public class HomePage extends ListActivity {
 
                 holder = (ViewHolder)convertView.getTag();
             }
-            String urlString =(String) listItem.get(position).get("img");
-            Log.v("String url:" , urlString);
-            imageLoader.displayImage((String)listItem.get(position).get("img"), holder.img);
+//            String urlString =(String) listItem.get(position).get("img");
+//            Log.v("String url:" , urlString);
+            imageLoader.displayImage((String)listItem.get(position).get("img"), holder.img,options,animateFirstListener);
 //            holder.img.setImageBitmap(getHome((String)listItem.get(position).get("img")));
             holder.name.setText((String)listItem.get(position).get("name"));
             holder.info.setText((String)listItem.get(position).get("info"));
+
 
             return convertView;
         }
 
     }
-
-
-//    /**
-//     * 根据图片名称获取主页图片
-//     */
-//    public Bitmap getHome(String photo){
-//        String homeName = photo + ".png";
-//        InputStream is=null;
-//
-//        try {
-//            is=getAssets().open("home/"+homeName);
-//            Bitmap bitmap = BitmapFactory.decodeStream(is);
-//            is.close();
-//            return bitmap;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//
-//    }
 
     ////工具类  
     /**

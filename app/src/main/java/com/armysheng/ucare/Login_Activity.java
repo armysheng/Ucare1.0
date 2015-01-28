@@ -11,6 +11,7 @@ public class Login_Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().hide();
         setContentView(R.layout.activity_login);
         Button loginBtn=(Button)findViewById(R.id.login_btn);
         loginBtn.setOnClickListener(new loginBtnClickListener());

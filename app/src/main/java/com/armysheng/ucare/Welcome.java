@@ -17,8 +17,9 @@ public class Welcome extends Activity implements Runnable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        getActionBar().hide();
         /**
-         * 新建现场
+         * 新建线程
          */
         new Thread(this).start();
     }
